@@ -21,19 +21,20 @@
 <header>
   <div class="midl-block header-menu">
     <span class="logo">{finsweet</span>
-    <a class="menu-link" href="">Home</a>
-    <a class="menu-link" href="">Menu</a>
-    <a class="menu-link" href="">About Us</a>
-    <a class="menu-link" href="">Our Story</a>
-    <a class="menu-link" href="">Blog</a>
-    <a class="menu-link" href="">Contact</a>
+    <a class="menu-link" href="#home">Home</a>
+    <a class="menu-link" href="#menu">Menu</a>
+    <a class="menu-link" href="#about">About Us</a>
+    <a class="menu-link" href="#story">Our Story</a>
+    <a class="menu-link" href="#blog">Blog</a>
+    <a class="menu-link" href="#blog_inner">Blog Inner</a>
+    <a class="menu-link" href="#contact">Contact</a>
   </div>
 </header>
 
 <!--////////////////////////////////-->
 
 <div class="main-body midl-block">
-  <div id="main-body__home" class="main-body__home">
+  <div id="home" class="router_link main-body__home">
     <div class="home-intro">
       <div class="home-intro__data">
         <h1 class="title home-intro__main_title">We serve high quality <br> foods of all
@@ -281,7 +282,7 @@
       </div>
     </div>
   </div>
-  <div id="main-body__menu" class="main-body__menu">
+  <div id="menu" class="router_link main-body__menu">
     <div class="menu-preview">
       <span class="before-title">OUR MENU</span>
       <div class="midl-block__title ">
@@ -404,7 +405,7 @@
       </div>
     </div>
   </div>
-  <div id="main-body__about" class="main-body__about">
+  <div id="about" class="router_link main-body__about">
     <div class="about-preview">
       <div class="about-preview__data">
         <span class="before-title">KNOW MORE ABOUT US</span>
@@ -507,7 +508,7 @@
 
 
   </div>
-  <div id="main-body__story" class="main-body__story">
+  <div id="story" class="router_link main-body__story">
     <div class="story__our-story">
       <h1 class="story__our-story-title">Our Story</h1>
       <p class="story__our-story-text">
@@ -551,7 +552,7 @@
     </div>
 
   </div>
-  <div id="main-body__blog" class="main-body__blog">
+  <div id="blog" class="router_link main-body__blog">
     <h1 class="blog-featured__main-title">Featured Blogs</h1>
     <div class="blog-featured">
       <div class="blog-featured__main">
@@ -654,7 +655,7 @@
 
     </div>
   </div>
-  <div id="main-body__blog-inner" class="main-body__blog-inner">
+  <div id="blog_inner" class="router_link main-body__blog-inner">
     <div class="blog-inner__profile">
       <img class="blog-aticles__item-icon" src="img/blog-aticles__item-icon.png" alt="">
       <p class="blog-aticles__item-profile__name">Andrew Jonson</p>
@@ -718,9 +719,7 @@
         originated from our Medium blog post, ‘Designing voice and tone for error messages.</p>
     </div>
   </div>
-
-
-  <div id="main-body__contactUS" class="main-body__contactUS">
+  <div id="contact" class="router_link main-body__contactUS">
     <div class="contactUS-data">
       <p class="contactUS-title">Have a Question ?
         <br>Get in Touch with us 👋</p>
@@ -740,7 +739,6 @@
     </div>
 
   </div>
-
 </div>
 
 <!--////////////////////////////////-->
@@ -775,11 +773,11 @@
 
   <div class="footer-menu">
     <span class="logo footer-logo">{finsweet</span>
-    <a class="menu-link" href="">Home</a>
-    <a class="menu-link" href="">Menu</a>
-    <a class="menu-link" href="">About Us</a>
-    <a class="menu-link" href="">Blog</a>
-    <a class="menu-link" href="">Contact</a>
+    <a class="menu-link" href="#home">Home</a>
+    <a class="menu-link" href="#menu">Menu</a>
+    <a class="menu-link" href="#about">About Us</a>
+    <a class="menu-link" href="#blog">Blog</a>
+    <a class="menu-link" href="#contact">Contact</a>
   </div>
 
   <p class="footer-line"></p>
@@ -811,7 +809,37 @@
   </div>
 </footer>
 <link rel="stylesheet" href="css/main.css">
-<script></script>
+<script>
+  const linkElements = document.getElementsByClassName('router_link')
+
+  function onHashChange() {
+    const currentHash = window.location.hash
+
+    function toggleRoute(elementId) {
+      for (let i of linkElements) {
+        document.getElementById(i.id).classList.add("router_link__deactivated")
+      }
+      if (elementId) {
+        document.getElementById(elementId).classList.remove("router_link__deactivated")
+      }
+    }
+
+    if (currentHash === '#home') toggleRoute('home')
+    else if (currentHash === '#menu') toggleRoute('menu')
+    else if (currentHash === '#about') toggleRoute('about')
+    else if (currentHash === '#story') toggleRoute('story')
+    else if (currentHash === '#blog_inner') toggleRoute('blog_inner')
+    else if (currentHash === '#blog') toggleRoute('blog')
+    else if (currentHash === '#contact') toggleRoute('contact')
+    else {
+      toggleRoute()
+      document.getElementById('home').classList.remove("router_link__deactivated")
+    }
+  }
+  onHashChange()
+
+  window.addEventListener('hashchange', onHashChange, false);
+</script>
 </body>
 </html>
 
