@@ -252,7 +252,7 @@
             <p class="bp-li__item-text">It is a long established fact that a reader will be
               distracted by the readable content of a page.</p>
           </div>
-          <img class="bp-li__img" src="img/bp-li__img1.png">
+          <img class="bp-li__img" src="img/bp-li__img1.png" alt="">
         </div>
         <div class="blog-preview__list-item">
           <div class="bp-li__item">
@@ -261,7 +261,7 @@
             <p class="bp-li__item-text">It is a long established fact that a reader will be
               distracted by the readable content of a page.</p>
           </div>
-          <img class="bp-li__img" src="img/bp-li__img2.png">
+          <img class="bp-li__img" src="img/bp-li__img2.png" alt="">
         </div>
         <div class="blog-preview__list-item">
           <div class="bp-li__item">
@@ -270,7 +270,7 @@
             <p class="bp-li__item-text">It is a long established fact that a reader will be
               distracted by the readable content of a page.</p>
           </div>
-          <img class="bp-li__img" src="img/bp-li__img3.png">
+          <img class="bp-li__img" src="img/bp-li__img3.png" alt="">
         </div>
 
       </div>
@@ -728,10 +728,16 @@
       <p class="contactUS-title">Have a Question ? Get in Touch with us 👋</p>
       <p class="contactUS-text">Fill up the Form and ou team will get back to within 24 hrs</p>
       <div class="input__name-email">
-        <input class="input input__name" alt="Name" value="Name">
-        <input class="input input__email" alt="Email" value="Email">
+        <label>
+          <input class="input input__name" alt="Name" value="Name">
+        </label>
+        <label>
+          <input class="input input__email" alt="Email" value="Email">
+        </label>
       </div>
-      <input class="input input__messege" name="Messege" value="Messege">
+      <label>
+        <input class="input input__messege" name="Messege" value="Messege">
+      </label>
       <button class="send-messege-btn">Send Messege</button>
 
 
@@ -817,7 +823,6 @@
 <link rel="stylesheet" href="css/main.css">
 <script>
   const linkElements = document.getElementsByClassName('router_link')
-
   function onHashChange() {
     const currentHash = window.location.hash
 
@@ -842,9 +847,7 @@
       document.getElementById('home').classList.remove("router_link__deactivated")
     }
   }
-
   onHashChange()
-
   window.addEventListener('hashchange', onHashChange, false);
 </script>
 </body>
