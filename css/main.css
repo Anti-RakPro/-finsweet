@@ -535,25 +535,23 @@ header {
 }
 
 .about-history__intro {
-    background-image: linear-gradient(90deg, hsla(0, 0%, 0%, 1) 0%, hsla(350, 91%, 65%, 0) 100%),
-    url("../img/about__history-intro-img.png");
+     background-image: linear-gradient(90deg, hsla(0, 0%, 0%, 1) 0%, hsla(350, 91%, 65%, 0) 100%);
+    /* url("../img/about__history-intro-img.png");*/
     background-repeat: no-repeat;
     width: 100%;
     height: 500px;
-    position: relative;
 
 }
 
-/*.about-history__intro:before {*/
-/*    content: "";*/
-/*    position: absolute;*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*    left: 0;*/
-/*    top: 0;*/
-/*    background: linear-gradient(90deg, hsla(0, 0%, 0%, 1) 0%, hsla(350, 91%, 65%, 0) 100%);*/
-/*    z-index: 1;*/
-/*}*/
+.about-history__intro {
+    position: relative;
+}
+
+.about-history__intro-img{
+    max-width: 1278px;
+    position: absolute;
+    z-index: -1;
+}
 
 .about-history__intro-title {
     padding: 120px 0 10px 40px;
@@ -1374,7 +1372,7 @@ header {
 .input__email {
     width: 100%;
 }
-GIT
+
 @media (max-width: 790px) {
     .home-intro__data-img {
         margin: 30px;
